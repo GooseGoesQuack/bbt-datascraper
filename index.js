@@ -1,16 +1,9 @@
 const express = require("express");
 const {google} = require("googleapis");
-const { accessapproval } = require("googleapis/build/src/apis/accessapproval");
 
 const app = express();
-app.set("view engine", "egs");
-app.use(express.urlencoded({extended: true}));
 
-app.get("/", (req, res) => {
-    res.render("index")
-});
-
-app.post("/", async (req, res) => {
+app.get("/", async (req, res) => {
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
         scopes: "https://www.googleapis.com/auth/spreadsheets",
