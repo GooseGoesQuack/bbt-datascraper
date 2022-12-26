@@ -44,13 +44,6 @@ app.get("/", async (req, res) => {
  
     const spreadsheetId = "1oSz2GirT0q9jaIurljRSZQDla6WNESmAIBDbJFC-guc";
  
-    // Read
-    const getRows = await googleSheets.spreadsheets.values.get({
-        auth,
-        spreadsheetId,
-        range: "Sheet1!A:D",
-    });
- 
     // Write
     await googleSheets.spreadsheets.values.append({
         auth,
@@ -62,7 +55,7 @@ app.get("/", async (req, res) => {
         },
     });
  
-    res.send(getRows.data);
+    res.send("Hi!");
 });
  
  
